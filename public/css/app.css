@@ -10882,3 +10882,11 @@ a.text-dark:focus {
   }
 }
 
+#logo {
+    max-width: 90%;
+}
+
+#divLogo {
+    max-width: 50px;
+    border-right: 1px solid #333;
+}
