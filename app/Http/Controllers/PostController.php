@@ -11,4 +11,19 @@ class PostController extends Controller
     {
         return view('posts/create');
     }
+
+    //2:01:16 Usar la validación para general el array de datos, si algún campo no requiere de validación
+    //pasarlo igualmente así: 'another field' => ''
+    public function store()
+    {
+        $data = request()->validate([
+            'caption' => 'required',
+            'image' => ['required', 'image'],
+        ]);
+
+        \App\Post::create($data);
+
+
+        dd(request()->all());
+    }
 }
