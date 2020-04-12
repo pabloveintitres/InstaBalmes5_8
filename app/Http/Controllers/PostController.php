@@ -6,14 +6,22 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    // Conveción: nombrar el método y la vista igual. post = carpeta, create = nombre de la vista. 1:41:00
+
+    // 2:07:03 Añadir middleware por Seguridad
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    // 1:41:00 Conveción: nombrar el método y la vista igual. post = carpeta, create = nombre de la vista.
+    // Agrupar los métodos que retornan vistas para identificarlos fácilmente.
     public function create()
     {
         return view('posts/create');
     }
 
-    //2:01:16 Usar la validación para general el array de datos, si algún campo no requiere de validación
-    //pasarlo igualmente así: 'another field' => ''
+    // 2:01:16 Usar la validación para general el array de datos, si algún campo no requiere de validación
+    // pasarlo igualmente así: 'another field' => '';
     public function store()
     {
         $data = request()->validate([
@@ -21,8 +29,12 @@ class PostController extends Controller
             'image' => ['required', 'image'],
         ]);
 
-        \App\Post::create($data);
+        // 2:10:20 sobre el almacenamiento de archivos en Laravel
+        //
+        dd(request('image')->store('uploads', 'public'));
 
+        // 2:04:48 Laravel añade la Fkey del User ID 'behind the scene'
+        auth()->user()->posts()->create($data);
 
         dd(request()->all());
     }
