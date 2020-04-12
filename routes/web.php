@@ -22,6 +22,17 @@ Auth::routes();
 
 Route::get('/p/create', 'PostController@create');
 
+Route::get('/p/{post}', 'PostController@show');
+
+//
 Route::post('/p', 'PostController@store');
 
+//
+// Select all profiles
+Route::get('/profiles', 'ProfilesController@profiles');
+
+// Single profile
 Route::get('/profile/{user}', 'ProfilesController@index')->name('profile.show');
+
+// Single profile from all profiles
+
