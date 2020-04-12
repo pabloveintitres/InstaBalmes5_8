@@ -30,12 +30,16 @@ class PostController extends Controller
         ]);
 
         // 2:10:20 sobre el almacenamiento de archivos en Laravel
-        //
-        dd(request('image')->store('uploads', 'public'));
+        // 2:11:51 php artisan storage:link. Crear enlace simbólico [...]
+        $imagePath = (request('image')->store('uploads', 'public'));
 
-        // 2:04:48 Laravel añade la Fkey del User ID 'behind the scene'
-        auth()->user()->posts()->create($data);
+        // 2:04:48 Laravel añade la FKey del User ID 'behind the scene'
+        auth()->user()->posts()->create([
+            'caption' => $data['caption'],
+            'image' => $imagePath,
+        ]);
 
-        dd(request()->all());
+        return redirect('/profile/' . auth()->user()->id);
+
     }
 }
