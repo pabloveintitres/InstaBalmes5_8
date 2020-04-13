@@ -34,8 +34,3 @@ Route::get('/profiles', 'ProfilesController@profiles');
 // Single profile
 Route::get('/profile/{user}', 'ProfilesController@index')->name('profile.show');
 
-// Single profile
-Route::get('/profile/profiles={user}', 'ProfilesController@index')->name('profile.show');
-
-// Single profile from all profiles
-
