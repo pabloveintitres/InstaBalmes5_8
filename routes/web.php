@@ -27,7 +27,6 @@ Route::get('/p/{post}', 'PostController@show');
 //
 Route::post('/p', 'PostController@store');
 
-
 // Show all profiles
 Route::get('/profiles', 'ProfilesController@profiles');
 

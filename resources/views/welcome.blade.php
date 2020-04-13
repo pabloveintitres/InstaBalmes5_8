@@ -66,6 +66,7 @@
     <body>
         <div class="flex-center position-ref full-height">
             <div class="content">
+                <div class="pr-3" id="divLogo"><img src="/svg/InstaBalmesLogo.svg" alt="" id="logo" style="max-height: 100px" ></div>
                 <div class="title m-b-md">
                     InstaBalmes
                 </div>
