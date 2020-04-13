@@ -9,6 +9,7 @@
             <div class="col-9 pt-5 pl-5">
                 <div class="d-flex justify-content-between align-items-baseline">
                     <h1>{{ $user->username }}</h1>
+                    <a class="btn-outline-primary" href="/profiles">Find other users</a>
                     <a class="btn-outline-primary" href="/p/create">Add new post</a>
                 </div>
                 <div class="d-flex">

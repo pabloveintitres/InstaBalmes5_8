@@ -27,12 +27,15 @@ Route::get('/p/{post}', 'PostController@show');
 //
 Route::post('/p', 'PostController@store');
 
-//
-// Select all profiles
+
+// Show all profiles
 Route::get('/profiles', 'ProfilesController@profiles');
 
 // Single profile
 Route::get('/profile/{user}', 'ProfilesController@index')->name('profile.show');
+
+// Single profile
+Route::get('/profile/profiles={user}', 'ProfilesController@index')->name('profile.show');
 
 // Single profile from all profiles
 

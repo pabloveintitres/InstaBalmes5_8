@@ -3,20 +3,11 @@
 @section('content')
     <div class="container">
         <div class="row pt-5">
-            <div class="form-group">
-                <form action="/profile/{{ $ }}">
-                    @csrf
-                    <select name="profiles" id="profiles">
-                        @foreach($users as $user)
-                            <a href="/p/{{ $user->id }}">
-                                {{ $user->name }}
-                            </a>
-                        @endforeach
-                    </select>
-                </form>
-
+            <div class="list-group">
+                    @foreach($users as $user)
+                        <a href="profile/{{$user->id}}" class="list-group-item list-group-item-action">{{  $user->name }}</a>
+                    @endforeach
             </div>
-
         </div>
     </div>
 @endsection
